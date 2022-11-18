@@ -9686,16 +9686,16 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(806);
 const github = __nccwpck_require__(2931);
+const fs = __nccwpck_require__(7147);
 
 try {
     const filename = core.getInput('file');
     console.log(`attempt to parse: ${filename}`);
 
-    const file = new File(filename);
-    const exists = file.exists();
+    const exists = fs.existsSync(filename)
 
     console.log(`file '${filename}' found: ${exists}`);
-    
+
     core.setOutput('test-ok', true);
 }
 catch (error) {
