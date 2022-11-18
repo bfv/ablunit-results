@@ -11,7 +11,7 @@ try {
 
     if (exists) {
         data = fs.readFileSync(filename);
-        results = xmljs.xml2json(data);
+        results = xmljs.xml2json(data, {compact: true, spaces: 4});
         console.log(results);
     }
 
