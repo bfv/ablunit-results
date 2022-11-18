@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<testsuites errors="0" failures="1" name="ABLUnit" tests="8">
+    <testsuite classname="lib.net.HttpHelper_TC" errors="0" failures="1" id="1" name="C:\dev\oe\weblib\src\weblib\lib\net\HttpHelper_TC.cls" skipped="0" tests="8" time="0">
+        <properties>
+            <property name="proversion" value="12.2.10.0.1386" />
+            <property name="process-architecture" value="64" />
+            <property name="opsys" value="WIN32" />
+            <property name="window-system" value="MS-WINXP" />
+            <property name="cpinternal" value="UTF-8" />
+            <property name="startup-parameters" value="-pf C:\dlc\122\startup.pf,-cpinternal UTF-8,-cpstream UTF-8,-cpcoll Basic,-cpcase Basic,-d dmy,-numsep 46,-numdec 44,(end .pf),-nosplash,-p C:\dlc\122\oeide\eclipse\plugins\com.openedge.pdt.debug.core_12.2.10.00\abl\_debuglauncher.p" />
+        </properties>
+        <testcase classname="lib.net.HttpHelper_TC" name="Simple_get_call_to_httpbin_returns_correct_mimetype" status="Success" time=",296" />
+        <testcase classname="lib.net.HttpHelper_TC" name="Simple_get_call_to_httpbin_returns_jsonobject" status="Success" time=",218" />
+        <testcase classname="lib.net.HttpHelper_TC" name="Simple_get_call_to_httpbin_returns_args" status="Success" time=",232" />
+        <testcase classname="lib.net.HttpHelper_TC" name="Bodyless_post" status="Success" time=",232" />
+        <testcase classname="lib.net.HttpHelper_TC" name="Post_with_text_body" status="Success" time=",219" />
+        <testcase classname="lib.net.HttpHelper_TC" name="Post_with_json_body" status="Success" time=",266" />
+        <testcase classname="lib.net.HttpHelper_TC" name="Non_existent_url_returns_404" status="Failure" time=",249">
+            <failure message="Expected: 404 but was: 405" type="OpenEdge.Core.AssertionFailedError">Equals OpenEdge.Core.Assert at line 90  (OpenEdge/Core/Assert.r)
+Non_existent_url_returns_404 lib.net.HttpHelper_TC at line 127  (C:\dev\oe\weblib\src\weblib\lib\net\HttpHelper_TC.cls)
+InvokeTestMethod OpenEdge.ABLUnit.Model.TestClass at line 65  (OpenEdge/ABLUnit/Model/TestClass.r)
+RunChild OpenEdge.ABLUnit.Model.TestCase at line 124  (OpenEdge/ABLUnit/Model/TestCase.r)
+runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1038  (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1045  (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+RunTests OpenEdge.ABLUnit.Runner.ABLRunner at line 146  (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+ABLUnitCore.r at line 97  (ABLUnitCore.r)</failure>
+        </testcase>
+        <testcase classname="lib.net.HttpHelper_TC" name="Non_existent_host_throws_error" status="Success" time=",026" />
+    </testsuite>
+</testsuites>

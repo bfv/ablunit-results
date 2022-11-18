@@ -1,0 +1,25 @@
+{
+  "name": "ablunit-results",
+  "version": "0.0.1",
+  "description": "Parser for OpenEdge ABLUnit results.xml ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/bfv/ablunit-results"
+  },
+  "keywords": [
+    "openedge",
+    "ablunit",
+    "unittest",
+    "parser"
+  ],
+  "author": "Bronco Oostermeyer <dev@bfv.io>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1"
+  }
+}
