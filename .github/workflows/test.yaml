@@ -18,7 +18,7 @@ jobs:
           path: .
 
       - name: Check unit tests
-        uses: bfv/ablunit-results@${{ github.sha }}
+        uses: bfv/ablunit-results@${GITHUB_SHA}
         with:
           file: ./results.xml
       
