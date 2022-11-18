@@ -9688,8 +9688,14 @@ const core = __nccwpck_require__(806);
 const github = __nccwpck_require__(2931);
 
 try {
-    const file = core.getInput('file');
-    console.log(`attempt to parse: ${file}`);
+    const filename = core.getInput('file');
+    console.log(`attempt to parse: ${filename}`);
+
+    const file = new File(filename);
+    const exists = file.exists();
+
+    console.log(`file '${filename}' found: ${exists}`);
+    
     core.setOutput('test-ok', true);
 }
 catch (error) {
