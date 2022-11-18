@@ -1,14 +1,19 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
+const xmljs = require('xml-js');
 
 try {
     const filename = core.getInput('file');
-    console.log(`attempt to parse: ${filename}`);
 
     const exists = fs.existsSync(filename)
-
     console.log(`file '${filename}' found: ${exists}`);
+
+    if (exists) {
+        data = fs.readFileSync(filename);
+        results = xmljs.xml2json(data);
+        console.log(results);
+    }
 
     core.setOutput('test-ok', true);
 }
