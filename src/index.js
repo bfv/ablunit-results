@@ -4,9 +4,17 @@ const fs = require('fs');
 //const xmljs = require('xml-js');
 const parseString = require('xml2js').parseString;
 
+var errorsOnly;
+var failOnError;
+
 try {
     var filename = core.getInput('file');
+    errorsOnly = core.getInput('errors-only') == 'true';
+    failOnError = core.getInput('fail-on-error') == 'true';
+
     console.log(`attempt to parse: ${filename}`);
+    console.log(`errors-only: ${errorsOnly}`);
+    console.log(`fail-on-error: ${failOnError}`);
 
     const exists = fs.existsSync(filename)
     if (!exists) {
@@ -19,14 +27,18 @@ try {
             errorsFound = iterateOverResults(results);
             console.log('Done');
             if (errorsFound) {
-                core.setFailed('Errors found in tests');
+                if (failOnError)
+                    core.setFailed('Errors found in tests');
+                else {
+                    console.log('Errors found in tests');
+                    core.setOutput('test-ok', false);
+                }
+
             } else {
                 core.setOutput('test-ok', true);
             }
         });
     }
-
-    core.setOutput('test-ok', true);
 }
 catch (error) {
     console.log(error);
@@ -39,18 +51,22 @@ function iterateOverResults(results) {
     var errorsFound = false;
 
     testsuites.forEach(testsuite => {
-        
+
         console.log(testsuite.$.classname); 
 
         const testcases = testsuite.testcase;
         testcases.forEach(testcase => {
             var str = testcase.$.name + "," + testcase.$.time.replace(",", ".") + "," + testcase.$.status; 
+            var hasError = false;
             if (testcase.failure) {
                 str = "ERR:" + str + "," + testcase.failure[0].$.message;
                 errorsFound = true;
+                hasError = true;
             }
-            str = "  " + str;
-            console.log(str);
+            if (hasError || !errorsOnly) {
+                str = "  " + str;
+                console.log(str);
+            }
        });
     });
 

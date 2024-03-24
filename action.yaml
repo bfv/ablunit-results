@@ -4,6 +4,12 @@ inputs:
   file:
     description: 'The file to parse'
     default: 'result.xml'
+  errors-only:
+    description: 'Only show errors?'
+    default: 'true'
+  fail-on-error:
+    description: 'Fail on error?'
+    default: 'true'
 outputs:
   test-ok:
     description: 'Test OK? true if all tests are executed with a positive result'
