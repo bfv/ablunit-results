@@ -10,6 +10,9 @@ inputs:
   fail-on-error:
     description: 'Fail on error?'
     default: 'true'
+  debug:
+    description: 'Debug?'
+    default: 'false'
 outputs:
   test-ok:
     description: 'Test OK? true if all tests are executed with a positive result'

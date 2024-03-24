@@ -6,15 +6,18 @@ const parseString = require('xml2js').parseString;
 
 var errorsOnly;
 var failOnError;
-
+var debug;
 try {
     var filename = core.getInput('file');
     errorsOnly = core.getInput('errors-only') == 'true';
     failOnError = core.getInput('fail-on-error') == 'true';
+    debug = core.getInput('debug') == 'true';
 
-    console.log(`attempt to parse: ${filename}`);
-    console.log(`errors-only: ${errorsOnly}`);
-    console.log(`fail-on-error: ${failOnError}`);
+    if (debug) {
+        console.log(`filename: ${filename}`);
+        console.log(`errors-only: ${errorsOnly}`);
+        console.log(`fail-on-error: ${failOnError}`);
+    }
 
     const exists = fs.existsSync(filename)
     if (!exists) {
@@ -23,14 +26,12 @@ try {
     if (exists) {
         const data = fs.readFileSync(filename);
         parseString(data, function (err, results) {
-            //console.dir(JSON.stringify(result));
             errorsFound = iterateOverResults(results);
-            console.log('Done');
             if (errorsFound) {
                 if (failOnError)
-                    core.setFailed('Errors found in tests');
+                    core.setFailed('Errors found in unit tests');
                 else {
-                    console.log('Errors found in tests');
+                    console.log('Errors found in unittests');
                     core.setOutput('test-ok', false);
                 }
 
@@ -63,7 +64,7 @@ function iterateOverResults(results) {
                 errorsFound = true;
                 hasError = true;
             }
-            if (hasError || !errorsOnly) {
+            if (hasError || !errorsOnly || debug) {
                 str = "  " + str;
                 console.log(str);
             }
@@ -71,6 +72,9 @@ function iterateOverResults(results) {
     });
 
     console.log('Errors found: ' + errorsFound);
-    return errorsFound;
+    if (errorsFound && !failOnError) {
+        console.log('  fail-on-error is false');
+    }
 
+    return errorsFound;
 }
