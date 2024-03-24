@@ -5,11 +5,13 @@ const fs = require('fs');
 const parseString = require('xml2js').parseString;
 
 try {
-    const filename = core.getInput('file');
+    var filename = core.getInput('file');
     console.log(`attempt to parse: ${filename}`);
 
     const exists = fs.existsSync(filename)
-
+    if (!exists) {
+        filename = ""
+    }
     if (exists) {
         const data = fs.readFileSync(filename);
         parseString(data, function (err, results) {
@@ -37,12 +39,12 @@ function iterateOverResults(results) {
     var errorsFound = false;
 
     testsuites.forEach(testsuite => {
-        console.log(testsuite.$.classname); 
+        console.log(testsuite._attributes.classname); 
         const testcases = testsuite.testcase;
         testcases.forEach(testcase => {
-            var str = testcase.$.name + "," + testcase.$.time.replace(",", ".") + "," + testcase.$.status; 
+            var str = testcase._attributes.name + "," + testcase._attributes.time.replace(",", ".") + "," + testcase.$.status; 
             if (testcase.failure) {
-                str = "ERR:" + str + "," + testcase.failure[0].$.message;
+                str = "ERR:" + str + "," + testcase.failure[0]._attributes.message;
                 errorsFound = true;
             }
             str = "  " + str;
