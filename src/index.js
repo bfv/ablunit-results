@@ -39,12 +39,12 @@ function iterateOverResults(results) {
     var errorsFound = false;
 
     testsuites.forEach(testsuite => {
-        console.log(testsuite._attributes.classname); 
+        console.log(testsuite.$.classname); 
         const testcases = testsuite.testcase;
         testcases.forEach(testcase => {
-            var str = testcase._attributes.name + "," + testcase._attributes.time.replace(",", ".") + "," + testcase.$.status; 
+            var str = testcase.$.name + "," + testcase.$.time.replace(",", ".") + "," + testcase.$.status; 
             if (testcase.failure) {
-                str = "ERR:" + str + "," + testcase.failure[0]._attributes.message;
+                str = "ERR:" + str + "," + testcase.failure[0].$.message;
                 errorsFound = true;
             }
             str = "  " + str;
