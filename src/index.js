@@ -5,7 +5,9 @@ const fs = require('fs');
 const parseString = require('xml2js').parseString;
 
 try {
-    const filename = 'results.xml';
+    const filename = core.getInput('file');
+    console.log(`attempt to parse: ${filename}`);
+
     const exists = fs.existsSync(filename)
 
     if (exists) {
