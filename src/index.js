@@ -1,22 +1,53 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
-const xmljs = require('xml-js');
+//const xmljs = require('xml-js');
+const parseString = require('xml2js').parseString;
 
 try {
-    const filename = core.getInput('file');
-
+    const filename = 'results.xml';
     const exists = fs.existsSync(filename)
-    console.log(`file '${filename}' found: ${exists}`);
 
     if (exists) {
-        data = fs.readFileSync(filename);
-        results = xmljs.xml2json(data, {compact: true, spaces: 4, alwaysArray: true});
-        console.log(results);
+        const data = fs.readFileSync(filename);
+        parseString(data, function (err, results) {
+            //console.dir(JSON.stringify(result));
+            errorsFound = iterateOverResults(results);
+            console.log('Done');
+            if (errorsFound) {
+                core.setFailed('Errors found in tests');
+            } else {
+                core.setOutput('test-ok', true);
+            }
+        });
     }
 
     core.setOutput('test-ok', true);
 }
 catch (error) {
+    console.log(error);
     core.setFailed(error.message);
+}
+
+function iterateOverResults(results) {
+
+    const testsuites = results.testsuites.testsuite;
+    var errorsFound = false;
+
+    testsuites.forEach(testsuite => {
+        console.log(testsuite.$.classname); 
+        const testcases = testsuite.testcase;
+        testcases.forEach(testcase => {
+            var str = testcase.$.name + "," + testcase.$.time.replace(",", ".") + "," + testcase.$.status; 
+            if (testcase.failure) {
+                str = "ERR:" + str + "," + testcase.failure[0].$.message;
+                errorsFound = true;
+            }
+            str = "  " + str;
+
+            console.log(str);
+       });
+       return errorsFound;
+    });
+
 }
