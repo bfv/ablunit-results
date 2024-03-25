@@ -17,7 +17,7 @@ This is a Github action, which in turn is ABLUnit result parser and display erro
 | name  | required | default | description |
 | --- | --- | --- | ---- | 
 | file  | yes | | the filename of the `result.xml` of ABLUnittest  |
-| file-on-error | no | true | should this step fail when errors found |
+| fail-on-error | no | true | should this step fail when errors found |
 | errors-only | no | true | should ony the errors in the action output |
 | debug | no | false | should extra (debug) information be displayed |
 
