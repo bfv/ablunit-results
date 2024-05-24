@@ -1,30 +1,376 @@
 <?xml version="1.0"?>
-<testsuites errors="0" failures="1" name="ABLUnit" tests="8">
-    <testsuite classname="lib.net.HttpHelper_TC" errors="0" failures="1" id="1" name="C:\dev\oe\weblib\src\weblib\lib\net\HttpHelper_TC.cls" skipped="0" tests="8" time="0">
-        <properties>
-            <property name="proversion" value="12.2.10.0.1386" />
-            <property name="process-architecture" value="64" />
-            <property name="opsys" value="WIN32" />
-            <property name="window-system" value="MS-WINXP" />
-            <property name="cpinternal" value="UTF-8" />
-            <property name="startup-parameters" value="-pf C:\dlc\122\startup.pf,-cpinternal UTF-8,-cpstream UTF-8,-cpcoll Basic,-cpcase Basic,-d dmy,-numsep 46,-numdec 44,(end .pf),-nosplash,-p C:\dlc\122\oeide\eclipse\plugins\com.openedge.pdt.debug.core_12.2.10.00\abl\_debuglauncher.p" />
-        </properties>
-        <testcase classname="lib.net.HttpHelper_TC" name="Simple_get_call_to_httpbin_returns_correct_mimetype" status="Success" time=",296" />
-        <testcase classname="lib.net.HttpHelper_TC" name="Simple_get_call_to_httpbin_returns_jsonobject" status="Success" time=",218" />
-        <testcase classname="lib.net.HttpHelper_TC" name="Simple_get_call_to_httpbin_returns_args" status="Success" time=",232" />
-        <testcase classname="lib.net.HttpHelper_TC" name="Bodyless_post" status="Success" time=",232" />
-        <testcase classname="lib.net.HttpHelper_TC" name="Post_with_text_body" status="Success" time=",219" />
-        <testcase classname="lib.net.HttpHelper_TC" name="Post_with_json_body" status="Success" time=",266" />
-        <testcase classname="lib.net.HttpHelper_TC" name="Non_existent_url_returns_404" status="Failure" time=",249">
-            <failure message="Expected: 404 but was: 405" type="OpenEdge.Core.AssertionFailedError">Equals OpenEdge.Core.Assert at line 90  (OpenEdge/Core/Assert.r)
-Non_existent_url_returns_404 lib.net.HttpHelper_TC at line 127  (C:\dev\oe\weblib\src\weblib\lib\net\HttpHelper_TC.cls)
-InvokeTestMethod OpenEdge.ABLUnit.Model.TestClass at line 65  (OpenEdge/ABLUnit/Model/TestClass.r)
-RunChild OpenEdge.ABLUnit.Model.TestCase at line 124  (OpenEdge/ABLUnit/Model/TestCase.r)
-runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1038  (OpenEdge/ABLUnit/Runner/ABLRunner.r)
-runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1045  (OpenEdge/ABLUnit/Runner/ABLRunner.r)
-RunTests OpenEdge.ABLUnit.Runner.ABLRunner at line 146  (OpenEdge/ABLUnit/Runner/ABLRunner.r)
-ABLUnitCore.r at line 97  (ABLUnitCore.r)</failure>
-        </testcase>
-        <testcase classname="lib.net.HttpHelper_TC" name="Non_existent_host_throws_error" status="Success" time=",026" />
-    </testsuite>
+<testsuites errors="6" failures="0" name="ABLUnit" tests="67">
+  <testsuite classname="fwebh.core.Factory_UT" errors="0" failures="0" id="1"
+    name="/app/src/fwebh/src/fwebh/core/Factory_UT.cls" skipped="0" tests="7" time=",011">
+    <properties>
+      <property name="proversion" value="12.8.2.0.1214" />
+      <property name="process-architecture" value="64" />
+      <property name="opsys" value="UNIX" />
+      <property name="window-system" value="TTY" />
+      <property name="cpinternal" value="UTF-8" />
+      <property name="startup-parameters"
+        value="-pf /usr/dlc/startup.pf,-cpinternal UTF-8,-cpstream UTF-8,-cpcoll Basic,-cpcase Basic,-d dmy,-numsep 46,-numdec 44,(end .pf),-b,-q,-param CFG=/tmp/ablunit110452362.out,-p /tmp/pctinit87196187.p" />
+    </properties>
+    <testcase classname="fwebh.core.Factory_UT" name="load_correct_factory_definitions"
+      status="Success" time=",005" />
+    <testcase classname="fwebh.core.Factory_UT" name="load_errorneous_factory_definitions"
+      status="Success" time="0" />
+    <testcase classname="fwebh.core.Factory_UT" name="non_defined_returns_error" status="Success"
+      time=",001" />
+    <testcase classname="fwebh.core.Factory_UT" name="non_singleton_returns_new_instance"
+      status="Success" time="0" />
+    <testcase classname="fwebh.core.Factory_UT" name="singleton_returns_same_instance"
+      status="Success" time="0" />
+    <testcase classname="fwebh.core.Factory_UT" name="class_not_found_returns_error"
+      status="Success" time=",001" />
+    <testcase classname="fwebh.core.Factory_UT" name="defintions_not_found_returns_error"
+      status="Success" time="0" />
+  </testsuite>
+  <testsuite classname="fwebh.misc.DefaultUnitTest_UT" errors="0" failures="0" id="9"
+    name="/app/src/fwebh/src/fwebh/misc/DefaultUnitTest_UT.cls" skipped="0" tests="1" time=",001">
+    <properties>
+      <property name="proversion" value="12.8.2.0.1214" />
+      <property name="process-architecture" value="64" />
+      <property name="opsys" value="UNIX" />
+      <property name="window-system" value="TTY" />
+      <property name="cpinternal" value="UTF-8" />
+      <property name="startup-parameters"
+        value="-pf /usr/dlc/startup.pf,-cpinternal UTF-8,-cpstream UTF-8,-cpcoll Basic,-cpcase Basic,-d dmy,-numsep 46,-numdec 44,(end .pf),-b,-q,-param CFG=/tmp/ablunit110452362.out,-p /tmp/pctinit87196187.p" />
+    </properties>
+    <testcase classname="fwebh.misc.DefaultUnitTest_UT" name="needed_as_only_unittest"
+      status="Success" time="0" />
+  </testsuite>
+  <testsuite classname="fwebh.pas.data.BinaryEntityWriter_UT" errors="0" failures="0" id="11"
+    name="/app/src/fwebh/src/fwebh/pas/data/BinaryEntityWriter_UT.cls" skipped="0" tests="3"
+    time=",007">
+    <properties>
+      <property name="proversion" value="12.8.2.0.1214" />
+      <property name="process-architecture" value="64" />
+      <property name="opsys" value="UNIX" />
+      <property name="window-system" value="TTY" />
+      <property name="cpinternal" value="UTF-8" />
+      <property name="startup-parameters"
+        value="-pf /usr/dlc/startup.pf,-cpinternal UTF-8,-cpstream UTF-8,-cpcoll Basic,-cpcase Basic,-d dmy,-numsep 46,-numdec 44,(end .pf),-b,-q,-param CFG=/tmp/ablunit110452362.out,-p /tmp/pctinit87196187.p" />
+    </properties>
+    <testcase classname="fwebh.pas.data.BinaryEntityWriter_UT" name="set_memptr_correct_write"
+      status="Success" time=",004" />
+    <testcase classname="fwebh.pas.data.BinaryEntityWriter_UT" name="write_memptr_correct_size"
+      status="Success" time="0" />
+    <testcase classname="fwebh.pas.data.BinaryEntityWriter_UT" name="set_datasethandle_fails_write"
+      status="Success" time=",001" />
+  </testsuite>
+  <testsuite classname="fwebh.pas.data.EntityWriterFactory_UT" errors="0" failures="0" id="15"
+    name="/app/src/fwebh/src/fwebh/pas/data/EntityWriterFactory_UT.cls" skipped="0" tests="10"
+    time=",016">
+    <properties>
+      <property name="proversion" value="12.8.2.0.1214" />
+      <property name="process-architecture" value="64" />
+      <property name="opsys" value="UNIX" />
+      <property name="window-system" value="TTY" />
+      <property name="cpinternal" value="UTF-8" />
+      <property name="startup-parameters"
+        value="-pf /usr/dlc/startup.pf,-cpinternal UTF-8,-cpstream UTF-8,-cpcoll Basic,-cpcase Basic,-d dmy,-numsep 46,-numdec 44,(end .pf),-b,-q,-param CFG=/tmp/ablunit110452362.out,-p /tmp/pctinit87196187.p" />
+    </properties>
+    <testcase classname="fwebh.pas.data.EntityWriterFactory_UT"
+      name="application_json_returns_correct_writer" status="Success" time=",005" />
+    <testcase classname="fwebh.pas.data.EntityWriterFactory_UT"
+      name="application_asterisk_returns_correct_writer" status="Success" time=",001" />
+    <testcase classname="fwebh.pas.data.EntityWriterFactory_UT"
+      name="text_plain_returns_correct_writer" status="Success" time=",001" />
+    <testcase classname="fwebh.pas.data.EntityWriterFactory_UT"
+      name="text_xml_returns_correct_writer" status="Success" time=",002" />
+    <testcase classname="fwebh.pas.data.EntityWriterFactory_UT"
+      name="image_png_returns_correct_writer" status="Success" time=",001" />
+    <testcase classname="fwebh.pas.data.EntityWriterFactory_UT"
+      name="image_asterisk_returns_correct_writer" status="Success" time="0" />
+    <testcase classname="fwebh.pas.data.EntityWriterFactory_UT"
+      name="application_pdf_returns_correct_writer" status="Success" time=",001" />
+    <testcase classname="fwebh.pas.data.EntityWriterFactory_UT" name="dummy_fails" status="Success"
+      time="0" />
+    <testcase classname="fwebh.pas.data.EntityWriterFactory_UT"
+      name="corrupt_json_fails_load_definitions" status="Success" time=",001" />
+    <testcase classname="fwebh.pas.data.EntityWriterFactory_UT"
+      name="invalid_json_fails_load_definitions" status="Success" time=",001" />
+  </testsuite>
+  <testsuite classname="fwebh.pas.data.JsonEntityWriter_UT" errors="0" failures="0" id="26"
+    name="/app/src/fwebh/src/fwebh/pas/data/JsonEntityWriter_UT.cls" skipped="0" tests="9"
+    time=",013">
+    <properties>
+      <property name="proversion" value="12.8.2.0.1214" />
+      <property name="process-architecture" value="64" />
+      <property name="opsys" value="UNIX" />
+      <property name="window-system" value="TTY" />
+      <property name="cpinternal" value="UTF-8" />
+      <property name="startup-parameters"
+        value="-pf /usr/dlc/startup.pf,-cpinternal UTF-8,-cpstream UTF-8,-cpcoll Basic,-cpcase Basic,-d dmy,-numsep 46,-numdec 44,(end .pf),-b,-q,-param CFG=/tmp/ablunit110452362.out,-p /tmp/pctinit87196187.p" />
+    </properties>
+    <testcase classname="fwebh.pas.data.JsonEntityWriter_UT" name="memptr_fails_write"
+      status="Success" time=",005" />
+    <testcase classname="fwebh.pas.data.JsonEntityWriter_UT" name="set_buffer_correct_write"
+      status="Success" time="0" />
+    <testcase classname="fwebh.pas.data.JsonEntityWriter_UT" name="set_buffer_correct_compare"
+      status="Success" time="0" />
+    <testcase classname="fwebh.pas.data.JsonEntityWriter_UT" name="set_dataset_correct_write"
+      status="Success" time=",001" />
+    <testcase classname="fwebh.pas.data.JsonEntityWriter_UT" name="set_dataset_correct_compare"
+      status="Success" time="0" />
+    <testcase classname="fwebh.pas.data.JsonEntityWriter_UT" name="set_json_object_correct_write"
+      status="Success" time="0" />
+    <testcase classname="fwebh.pas.data.JsonEntityWriter_UT" name="set_json_object_correct_compare"
+      status="Success" time=",001" />
+    <testcase classname="fwebh.pas.data.JsonEntityWriter_UT" name="set_temp_table_correct_write"
+      status="Success" time="0" />
+    <testcase classname="fwebh.pas.data.JsonEntityWriter_UT" name="set_temp_table_correct_compare"
+      status="Success" time="0" />
+  </testsuite>
+  <testsuite classname="fwebh.pas.data.PlainTextEntityWriter_UT" errors="0" failures="0" id="36"
+    name="/app/src/fwebh/src/fwebh/pas/data/PlainTextEntityWriter_UT.cls" skipped="0" tests="2"
+    time=",003">
+    <properties>
+      <property name="proversion" value="12.8.2.0.1214" />
+      <property name="process-architecture" value="64" />
+      <property name="opsys" value="UNIX" />
+      <property name="window-system" value="TTY" />
+      <property name="cpinternal" value="UTF-8" />
+      <property name="startup-parameters"
+        value="-pf /usr/dlc/startup.pf,-cpinternal UTF-8,-cpstream UTF-8,-cpcoll Basic,-cpcase Basic,-d dmy,-numsep 46,-numdec 44,(end .pf),-b,-q,-param CFG=/tmp/ablunit110452362.out,-p /tmp/pctinit87196187.p" />
+    </properties>
+    <testcase classname="fwebh.pas.data.PlainTextEntityWriter_UT"
+      name="utf8_chars_loaded_correctly_to_longchar" status="Success" time="0" />
+    <testcase classname="fwebh.pas.data.PlainTextEntityWriter_UT"
+      name="win1252_chars_loaded_correctly_to_longchar" status="Success" time="0" />
+  </testsuite>
+  <testsuite classname="fwebh.pas.data.XmlEntityWriter_UT" errors="0" failures="0" id="39"
+    name="/app/src/fwebh/src/fwebh/pas/data/XmlEntityWriter_UT.cls" skipped="0" tests="7"
+    time=",007">
+    <properties>
+      <property name="proversion" value="12.8.2.0.1214" />
+      <property name="process-architecture" value="64" />
+      <property name="opsys" value="UNIX" />
+      <property name="window-system" value="TTY" />
+      <property name="cpinternal" value="UTF-8" />
+      <property name="startup-parameters"
+        value="-pf /usr/dlc/startup.pf,-cpinternal UTF-8,-cpstream UTF-8,-cpcoll Basic,-cpcase Basic,-d dmy,-numsep 46,-numdec 44,(end .pf),-b,-q,-param CFG=/tmp/ablunit110452362.out,-p /tmp/pctinit87196187.p" />
+    </properties>
+    <testcase classname="fwebh.pas.data.XmlEntityWriter_UT" name="memptr_fails_write"
+      status="Success" time=",002" />
+    <testcase classname="fwebh.pas.data.XmlEntityWriter_UT" name="set_buffer_correct_write"
+      status="Success" time="0" />
+    <testcase classname="fwebh.pas.data.XmlEntityWriter_UT" name="set_buffer_correct_compare"
+      status="Success" time=",001" />
+    <testcase classname="fwebh.pas.data.XmlEntityWriter_UT" name="set_dataset_correct_write"
+      status="Success" time="0" />
+    <testcase classname="fwebh.pas.data.XmlEntityWriter_UT" name="set_dataset_correct_compare"
+      status="Success" time="0" />
+    <testcase classname="fwebh.pas.data.XmlEntityWriter_UT" name="set_temp_table_correct_write"
+      status="Success" time=",001" />
+    <testcase classname="fwebh.pas.data.XmlEntityWriter_UT" name="set_temp_table_correct_compare"
+      status="Success" time="0" />
+  </testsuite>
+  <testsuite classname="fwebh.pas.service.ServiceFactory_UT" errors="5" failures="0" id="47"
+    name="/app/src/fwebh/src/fwebh/pas/service/ServiceFactory_UT.cls" skipped="0" tests="10"
+    time="0">
+    <properties>
+      <property name="proversion" value="12.8.2.0.1214" />
+      <property name="process-architecture" value="64" />
+      <property name="opsys" value="UNIX" />
+      <property name="window-system" value="TTY" />
+      <property name="cpinternal" value="UTF-8" />
+      <property name="startup-parameters"
+        value="-pf /usr/dlc/startup.pf,-cpinternal UTF-8,-cpstream UTF-8,-cpcoll Basic,-cpcase Basic,-d dmy,-numsep 46,-numdec 44,(end .pf),-b,-q,-param CFG=/tmp/ablunit110452362.out,-p /tmp/pctinit87196187.p" />
+    </properties>
+    <testcase classname="fwebh.pas.service.ServiceFactory_UT" name="get_instance" status="Success"
+      time=",015" />
+    <testcase classname="fwebh.pas.service.ServiceFactory_UT"
+      name="non_singleton_return_new_instances" status="Success" time=",001" />
+    <testcase classname="fwebh.pas.service.ServiceFactory_UT" name="singleton_return_same_instances"
+      status="Success" time="0" />
+    <testcase classname="fwebh.pas.service.ServiceFactory_UT"
+      name="non_existent_classname_should_throw_error" status="Success" time=",007" />
+    <testcase classname="fwebh.pas.service.ServiceFactory_UT"
+      name="non_existent_indentifier_should_throw_error" status="Success" time=",008" />
+    <testcase classname="fwebh.pas.service.ServiceFactory_UT"
+      name="service_with_DELETE_not_implemented_should_throw" status="Error" time=",002">
+      <error
+        message="Expecting:fwebh.lang.error.NotImplementedException but found:fwebh.lang.error.NotAllowedException"
+        type="fwebh.lang.error.NotAllowedException">getFromFactory fwebh.pas.service.ServiceFactory
+        at line 66 (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory.cls)
+        GetDeleteDataService fwebh.pas.service.ServiceFactory at line 56
+        (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory.cls)
+        service_with_DELETE_not_implemented_should_throw fwebh.pas.service.ServiceFactory_UT at line
+        82 (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory_UT.cls)
+        InvokeTestMethod OpenEdge.ABLUnit.Model.TestClass at line 82
+        (OpenEdge/ABLUnit/Model/TestClass.r)
+        RunChild OpenEdge.ABLUnit.Model.TestCase at line 130 (OpenEdge/ABLUnit/Model/TestCase.r)
+        runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1664
+        (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1670
+        (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        RunTests OpenEdge.ABLUnit.Runner.ABLRunner at line 457 (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        ABLUnitCore.p at line 97 (ABLUnitCore.r)
+        /tmp/pctinit87196187.p at line 30 (/tmp/pctinit87196187.p)</error>
+    </testcase>
+    <testcase classname="fwebh.pas.service.ServiceFactory_UT"
+      name="service_with_GET_not_implemented_should_throw" status="Error" time="0">
+      <error
+        message="Expecting:fwebh.lang.error.NotImplementedException but found:fwebh.lang.error.NotAllowedException"
+        type="fwebh.lang.error.NotAllowedException">getFromFactory fwebh.pas.service.ServiceFactory
+        at line 66 (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory.cls)
+        GetGetDataService fwebh.pas.service.ServiceFactory at line 36
+        (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory.cls)
+        service_with_GET_not_implemented_should_throw fwebh.pas.service.ServiceFactory_UT at line 87
+        (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory_UT.cls)
+        InvokeTestMethod OpenEdge.ABLUnit.Model.TestClass at line 82
+        (OpenEdge/ABLUnit/Model/TestClass.r)
+        RunChild OpenEdge.ABLUnit.Model.TestCase at line 130 (OpenEdge/ABLUnit/Model/TestCase.r)
+        runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1664
+        (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1670
+        (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        RunTests OpenEdge.ABLUnit.Runner.ABLRunner at line 457 (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        ABLUnitCore.p at line 97 (ABLUnitCore.r)
+        /tmp/pctinit87196187.p at line 30 (/tmp/pctinit87196187.p)</error>
+    </testcase>
+    <testcase classname="fwebh.pas.service.ServiceFactory_UT"
+      name="service_with_PATCH_not_implemented_should_throw" status="Error" time="0">
+      <error
+        message="Expecting:fwebh.lang.error.NotImplementedException but found:fwebh.lang.error.NotAllowedException"
+        type="fwebh.lang.error.NotAllowedException">getFromFactory fwebh.pas.service.ServiceFactory
+        at line 66 (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory.cls)
+        GetPatchDataService fwebh.pas.service.ServiceFactory at line 41
+        (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory.cls)
+        service_with_PATCH_not_implemented_should_throw fwebh.pas.service.ServiceFactory_UT at line
+        92 (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory_UT.cls)
+        InvokeTestMethod OpenEdge.ABLUnit.Model.TestClass at line 82
+        (OpenEdge/ABLUnit/Model/TestClass.r)
+        RunChild OpenEdge.ABLUnit.Model.TestCase at line 130 (OpenEdge/ABLUnit/Model/TestCase.r)
+        runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1664
+        (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1670
+        (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        RunTests OpenEdge.ABLUnit.Runner.ABLRunner at line 457 (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        ABLUnitCore.p at line 97 (ABLUnitCore.r)
+        /tmp/pctinit87196187.p at line 30 (/tmp/pctinit87196187.p)</error>
+    </testcase>
+    <testcase classname="fwebh.pas.service.ServiceFactory_UT"
+      name="service_with_POST_not_implemented_should_throw" status="Error" time="0">
+      <error
+        message="Expecting:fwebh.lang.error.NotImplementedException but found:fwebh.lang.error.NotAllowedException"
+        type="fwebh.lang.error.NotAllowedException">getFromFactory fwebh.pas.service.ServiceFactory
+        at line 66 (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory.cls)
+        GetPostDataService fwebh.pas.service.ServiceFactory at line 46
+        (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory.cls)
+        service_with_POST_not_implemented_should_throw fwebh.pas.service.ServiceFactory_UT at line
+        97 (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory_UT.cls)
+        InvokeTestMethod OpenEdge.ABLUnit.Model.TestClass at line 82
+        (OpenEdge/ABLUnit/Model/TestClass.r)
+        RunChild OpenEdge.ABLUnit.Model.TestCase at line 130 (OpenEdge/ABLUnit/Model/TestCase.r)
+        runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1664
+        (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1670
+        (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        RunTests OpenEdge.ABLUnit.Runner.ABLRunner at line 457 (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        ABLUnitCore.p at line 97 (ABLUnitCore.r)
+        /tmp/pctinit87196187.p at line 30 (/tmp/pctinit87196187.p)</error>
+    </testcase>
+    <testcase classname="fwebh.pas.service.ServiceFactory_UT"
+      name="service_with_PUT_not_implemented_should_throw" status="Error" time=",001">
+      <error
+        message="Expecting:fwebh.lang.error.NotImplementedException but found:fwebh.lang.error.NotAllowedException"
+        type="fwebh.lang.error.NotAllowedException">getFromFactory fwebh.pas.service.ServiceFactory
+        at line 66 (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory.cls)
+        GetPutDataService fwebh.pas.service.ServiceFactory at line 51
+        (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory.cls)
+        service_with_PUT_not_implemented_should_throw fwebh.pas.service.ServiceFactory_UT at line
+        102 (/app/src/fwebh/src/fwebh/pas/service/ServiceFactory_UT.cls)
+        InvokeTestMethod OpenEdge.ABLUnit.Model.TestClass at line 82
+        (OpenEdge/ABLUnit/Model/TestClass.r)
+        RunChild OpenEdge.ABLUnit.Model.TestCase at line 130 (OpenEdge/ABLUnit/Model/TestCase.r)
+        runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1664
+        (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1670
+        (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        RunTests OpenEdge.ABLUnit.Runner.ABLRunner at line 457 (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        ABLUnitCore.p at line 97 (ABLUnitCore.r)
+        /tmp/pctinit87196187.p at line 30 (/tmp/pctinit87196187.p)</error>
+    </testcase>
+  </testsuite>
+  <testsuite classname="fwebh.serialize.SimpleJsonDeserializer_UT" errors="0" failures="0" id="58"
+    name="/app/src/fwebh/src/fwebh/serialize/SimpleJsonDeserializer_UT.cls" skipped="0" tests="8"
+    time=",02">
+    <properties>
+      <property name="proversion" value="12.8.2.0.1214" />
+      <property name="process-architecture" value="64" />
+      <property name="opsys" value="UNIX" />
+      <property name="window-system" value="TTY" />
+      <property name="cpinternal" value="UTF-8" />
+      <property name="startup-parameters"
+        value="-pf /usr/dlc/startup.pf,-cpinternal UTF-8,-cpstream UTF-8,-cpcoll Basic,-cpcase Basic,-d dmy,-numsep 46,-numdec 44,(end .pf),-b,-q,-param CFG=/tmp/ablunit110452362.out,-p /tmp/pctinit87196187.p" />
+    </properties>
+    <testcase classname="fwebh.serialize.SimpleJsonDeserializer_UT" name="instantiate_deserializer"
+      status="Success" time=",006" />
+    <testcase classname="fwebh.serialize.SimpleJsonDeserializer_UT" name="deserialize_address"
+      status="Success" time=",001" />
+    <testcase classname="fwebh.serialize.SimpleJsonDeserializer_UT"
+      name="deserialize_address_string" status="Success" time="0" />
+    <testcase classname="fwebh.serialize.SimpleJsonDeserializer_UT"
+      name="deserialize_openedge_string_list" status="Success" time=",001" />
+    <testcase classname="fwebh.serialize.SimpleJsonDeserializer_UT" name="deserialize_address_list"
+      status="Success" time=",001" />
+    <testcase classname="fwebh.serialize.SimpleJsonDeserializer_UT" name="deserialize_temptable"
+      status="Success" time=",002" />
+    <testcase classname="fwebh.serialize.SimpleJsonDeserializer_UT"
+      name="deserialize_array_in_object" status="Success" time=",001" />
+    <testcase classname="fwebh.serialize.SimpleJsonDeserializer_UT"
+      name="deserialize_stringstringmap" status="Success" time=",001" />
+  </testsuite>
+  <testsuite classname="fwebh.serialize.SimpleJsonSerializer_UT" errors="1" failures="0" id="67"
+    name="/app/src/fwebh/src/fwebh/serialize/SimpleJsonSerializer_UT.cls" skipped="0" tests="10"
+    time="0">
+    <properties>
+      <property name="proversion" value="12.8.2.0.1214" />
+      <property name="process-architecture" value="64" />
+      <property name="opsys" value="UNIX" />
+      <property name="window-system" value="TTY" />
+      <property name="cpinternal" value="UTF-8" />
+      <property name="startup-parameters"
+        value="-pf /usr/dlc/startup.pf,-cpinternal UTF-8,-cpstream UTF-8,-cpcoll Basic,-cpcase Basic,-d dmy,-numsep 46,-numdec 44,(end .pf),-b,-q,-param CFG=/tmp/ablunit110452362.out,-p /tmp/pctinit87196187.p" />
+    </properties>
+    <testcase classname="fwebh.serialize.SimpleJsonSerializer_UT" name="instantiate_serializer"
+      status="Success" time=",006" />
+    <testcase classname="fwebh.serialize.SimpleJsonSerializer_UT"
+      name="serialized_address_equal_to_template" status="Success" time="0" />
+    <testcase classname="fwebh.serialize.SimpleJsonSerializer_UT"
+      name="serialized_address_with_fqcn_equal_to_template" status="Success" time=",001" />
+    <testcase classname="fwebh.serialize.SimpleJsonSerializer_UT" name="test_address_equals_method"
+      status="Success" time="0" />
+    <testcase classname="fwebh.serialize.SimpleJsonSerializer_UT"
+      name="serialized_arrayobj_equal_to_template" status="Success" time="0" />
+    <testcase classname="fwebh.serialize.SimpleJsonSerializer_UT" name="serialize_temptable"
+      status="Success" time=",001" />
+    <testcase classname="fwebh.serialize.SimpleJsonSerializer_UT"
+      name="serialize_openedge_string_list" status="Success" time=",001" />
+    <testcase classname="fwebh.serialize.SimpleJsonSerializer_UT"
+      name="serialize_openedge_object_list" status="Success" time="0" />
+    <testcase classname="fwebh.serialize.SimpleJsonSerializer_UT" name="utf_char_serialization"
+      status="Success" time="0" />
+    <testcase classname="fwebh.serialize.SimpleJsonSerializer_UT" name="serialize_stringstringmap"
+      status="Error" time="0">
+      <error
+        message="** Cannot find or open file src/test/serialize/map-string.txt, errno = 2. (43)"
+        type="Progress.Lang.SysError">serialize_stringstringmap
+        fwebh.serialize.SimpleJsonSerializer_UT at line 167
+        (/app/src/fwebh/src/fwebh/serialize/SimpleJsonSerializer_UT.cls)
+        InvokeTestMethod OpenEdge.ABLUnit.Model.TestClass at line 82
+        (OpenEdge/ABLUnit/Model/TestClass.r)
+        RunChild OpenEdge.ABLUnit.Model.TestCase at line 130 (OpenEdge/ABLUnit/Model/TestCase.r)
+        runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1664
+        (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        runtests OpenEdge.ABLUnit.Runner.ABLRunner at line 1670
+        (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        RunTests OpenEdge.ABLUnit.Runner.ABLRunner at line 457 (OpenEdge/ABLUnit/Runner/ABLRunner.r)
+        ABLUnitCore.p at line 97 (ABLUnitCore.r)
+        /tmp/pctinit87196187.p at line 30 (/tmp/pctinit87196187.p)</error>
+    </testcase>
+  </testsuite>
 </testsuites>

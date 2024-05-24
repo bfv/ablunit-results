@@ -21,4 +21,11 @@ jobs:
         uses: bfv/ablunit-results@master
         with:
           file: ./results.xml
+          fail-on-error: false
+          errors-only: false
+          debug: true
+      
+      
+
+
       

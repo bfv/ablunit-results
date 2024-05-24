@@ -26,10 +26,11 @@ try {
     if (exists) {
         const data = fs.readFileSync(filename);
         parseString(data, function (err, results) {
-            errorsFound = iterateOverResults(results);
+            const errorsFound = iterateOverResults(results);
             if (errorsFound) {
-                if (failOnError)
+                if (failOnError) {
                     core.setFailed('Errors found in unit tests');
+                }                
                 else {
                     console.log('Errors found in unittests');
                     core.setOutput('test-ok', false);
@@ -59,8 +60,8 @@ function iterateOverResults(results) {
         testcases.forEach(testcase => {
             var str = testcase.$.name + "," + testcase.$.time.replace(",", ".") + "," + testcase.$.status; 
             var hasError = false;
-            if (testcase.failure) {
-                str = "ERR:" + str + "," + testcase.failure[0].$.message;
+            if (testcase.$.status == 'Error') {
+                str = "ERR:" + str + "," + testcase.error[0].$.message;
                 errorsFound = true;
                 hasError = true;
             }
@@ -75,6 +76,6 @@ function iterateOverResults(results) {
     if (errorsFound && !failOnError) {
         console.log('  fail-on-error is false');
     }
-
+  
     return errorsFound;
 }
